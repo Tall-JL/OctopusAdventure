@@ -1,0 +1,7 @@
+C:\Users\bigja\source\repos\OctopusAdventure\OctopusAdventureUI\bin\Debug\OctopusAdventureUI.exe.config
+C:\Users\bigja\source\repos\OctopusAdventure\OctopusAdventureUI\bin\Debug\OctopusAdventureUI.exe
+C:\Users\bigja\source\repos\OctopusAdventure\OctopusAdventureUI\bin\Debug\OctopusAdventureUI.pdb
+C:\Users\bigja\source\repos\OctopusAdventure\OctopusAdventureUI\obj\Debug\OctopusAdventureUI.csproj.AssemblyReference.cache
+C:\Users\bigja\source\repos\OctopusAdventure\OctopusAdventureUI\obj\Debug\OctopusAdventureUI.csproj.CoreCompileInputs.cache
+C:\Users\bigja\source\repos\OctopusAdventure\OctopusAdventureUI\obj\Debug\OctopusAdventureUI.exe
+C:\Users\bigja\source\repos\OctopusAdventure\OctopusAdventureUI\obj\Debug\OctopusAdventureUI.pdb
