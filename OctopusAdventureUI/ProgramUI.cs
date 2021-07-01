@@ -304,7 +304,6 @@ namespace OctopusAdventureUI
                 Shark1();
             }
         }
-
         public void Shark2()
         {
             NewZone("You emerge from the sand to see that the shark is finally gone. Happily with your escape you go swimming about your way!" +
@@ -342,8 +341,214 @@ namespace OctopusAdventureUI
         }
         public void Breather()
         {
+            NewZone("The chances of you surviving an encounter with a shark were almost zero but yet you are still here. Whether it be luck or skill" +
+                "you have persevered. You take some time to rest and compose yourself. You need to find your way home so which way should you continue? There seems to " +
+                "be an area with a light not to far to your left and to your right there seems to be slight movement but you cant quite make out what it is.\n\n\n" +
+                "Lets try going LEFT.\n" +
+                "RIGHT is obviously the right way!\n\n\n");
 
+            string command = Console.ReadLine().ToLower();
+
+            if (command == "left")
+            {
+                Console.WriteLine("You decide to go check out the light in the distance in hope of finding a clue to where you are.");
+                HealHealth(30);
+                Console.ReadKey();
+                Coral1();
+            }
+
+            else if (command == "right")
+            {
+                Console.WriteLine("Movement means maybe there is someone thing you can use to figure out you location based on what creature is in this habitat!");
+                HealHealth(30);
+                Console.ReadKey();
+                Whale();
+            }
+            else
+            {
+                InvalidCommand();
+                Breather();
+            }
         }
+
+        public void Whale() 
+        {
+            NewZone("You decided to check out the movement in the distance. As you swim closer you notice that you can no longer see past the object to either side." +
+                " Suddenly the movement turns out to be extremely apparent to what it is! Its a blue whale! Whales arent normally hostile to you so this could be a great" +
+                " chance to stick to its side and catch a ride!\n\n\n" +
+                "Swim up and STICK to its side?\n" +
+                "Its way too dangerous to approach this massive creature so you FLEE.\n" +
+                "WAIT for it to pass you?\n\n\n");
+
+            string command = Console.ReadLine().ToLower();
+
+            if (command == "stick")
+            {
+                Console.WriteLine("After approaching the behemoth you realize you should have went toward its side instead of the front of it. " +
+                    "The whale opens its mouth and swallows you whole!!!!");                
+                Console.ReadKey();
+                Whale2();
+            }
+            else if (command == "flee")
+            {
+                Console.WriteLine("Noticing the damage of the situation you turn tail and speed away! You glance backwards as you see the whale open its mouth; " +
+                    "had you not left when you did surely youd be whale food by now!");                
+                Console.ReadKey();
+                Tunnel();
+            }
+            else if (command == "wait")
+            {
+                Console.WriteLine("You've decided to not approach the whale and to leave it be. Unfortunately the way didnt have the same plan. It closes the distance" +
+                    "between you and opens its mouth and you are swallowed whole!");                
+                Console.ReadKey();
+                Whale2();
+            }
+            else
+            {
+                InvalidCommand();
+                Whale();
+            }
+        }
+        public void Whale2() 
+        {
+            NewZone("The whale shifts around quite a lot so you use your suckers to stablize yourself. " +
+                "Its almost pitch black here but your eyes adjust rather quickly and you survery your surroundings. Inside this whale seems to be" +
+                "small fish bits, a broken up pirate ship and the exit to the whales blow hole!\n\n\n" +
+                "There is no way you are arent EXPLORING this pirate ship!\n" +
+                "You decide to ESCAPE while you can through the blowhole.\n" +
+                "Maybe the fish bits have some of use to you so you SEARCH them!\n\n\n");
+
+            string command = Console.ReadLine().ToLower();
+
+            if (command == "exploring")
+            {
+                Console.WriteLine("You squiggle your way over to the wreckage of the pirate ship! Upon slapping around bits of wood you see a doll with a strangely" +
+                    " long nose. You throw it. Under some more wood you find pirate swords!");
+                Console.ReadKey();
+                Whale3();
+            }
+            else if (command == "escape")
+            {
+                Console.WriteLine("You decide to take the only smart option and escape through the blow hole! Unfortunately the blow hole was squeezed tight since " +
+                    "the whale was still submerged so you had to squeeze out and hurt yourself in the process. You get out of the whale and keep swimming on your way...");
+                DamageTaken(35);
+                Console.ReadKey();
+                Tunnel();
+            }
+            else if (command == "search")
+            {
+                Console.WriteLine("You waddle over to the pile of fish bites. As you come up to it you see something else is there! Its a crab! The crab while angry with your " +
+                    "interuption starts clawing all around to get you! One of the missed claw attempts hit the whales tongue and the whale subsequently spits both you and crab" +
+                    "out. You both hit the sea floor pretty hard.");
+                DamageTaken(25);
+                Console.ReadKey();
+                Tunnel();
+            }
+            else
+            {
+                InvalidCommand();
+                Whale2();
+            }
+        }
+        public void Whale3() 
+        {
+            NewZone("With you newly equipped pirate swords this whale should make light work to get out of! The only question that remains is how violent do you" +
+                " want to get about this?\n\n\n" +
+                "You to get MAD and slash the tongue!\n" +
+                "Trying not to anger the whale much you POKE the tongue gently.\n\n\n");
+
+            string command = Console.ReadLine().ToLower();
+
+            if (command == "mad")
+            {
+                Console.WriteLine("You have several pirate swords held in several of your arms and with pure fury and swiftness you rapidly unleash a flurry" +
+                    "of sword swipes at the tongue of this beast! You dont let up and the whale opens its mouth and you speed out of the whale while leave your" +
+                    "swords stuck in the whales tongue. You adrenaline from conqouring this ordeal has heal you some!");
+                HealHealth(15);
+                Console.ReadKey();
+                Tunnel();
+            }
+            else if (command == "poke")
+            {
+                Console.WriteLine("After opting to take a slightly less aggressive path you poke the whales tongue several times. The whale eventually gets annoyed" +
+                    " enough to spit you out but it spits you into the sea floor and you hit to ground pretty hard!");
+                DamageTaken(25);
+                Console.ReadKey();
+                Tunnel();
+            }
+            
+            else
+            {
+                InvalidCommand();
+                Whale3();
+            }
+        }
+        
+        public void Coral1() 
+        {
+            NewZone("Light means you are getting closer to the surface and you feel this would be the best way to continue forward to find your home!" +
+                " Once you catch up to the light you find out that what you saw was a beautiful coral reef shimmering in the distance! This isnt your home but a coral reef" +
+                " would be the perfect new place to call your home!\n\n\n" +
+                "You decide to SEARCH the reef to see if it would be a good place to settle!\n" +
+                "A corel reef this bright means it has to have attracted predators so you decide its best to LEAVE and look for your original home...\n\n\n");
+
+            string command = Console.ReadLine().ToLower();
+
+            if (command == "search")
+            {
+                Console.WriteLine("You swim around for a bit then see a good nook that would be perfect for you! Quickly you decide to swim down and check it out. No sooner than" +
+                    " you reach the entrance to huge electric eels come out!");
+                Console.ReadKey();
+                Coral2();
+            }
+            else if (command == "leave")
+            {
+                Console.WriteLine("You know that if the reef could attract you then it has to be able to attract nastier creatures too, so " +
+                    "in order to avoid once again another confrontation you just pre-emptively leave even though it pains you to do so... ");
+                Console.ReadKey();
+                Tunnel();
+            }
+           
+            else
+            {
+                InvalidCommand();
+                Coral1();
+            }
+        }
+        public void Coral2() 
+        {
+            NewZone("Why cant you just have a simple life. All you wanted was a place to lay your mantle and here we are with yet another confrontation... You slowly back up from the " +
+                "eels when suddenly one of the zips toward you fast with the intent to kill!!!!\n\n\n" +
+                "There no way INK wont work on these fools!\n" +
+                "Electric eels are easily a match for you and especially with several more behind the charging one. You decide itd be best to quickly SWIM out of there.\n\n\n");
+
+            string command = Console.ReadLine().ToLower();
+
+            if (command == "ink")
+            {
+                Console.WriteLine("Luckily for you the eels were all bunched up from all being in the hole so when you went to spray your ink you got all of them! " +
+                    "You escape out of there as quick as you can and leave the reef for good!");
+                Console.ReadKey();
+                Tunnel();
+            }            
+            else if (command == "swim")
+            {
+                Console.WriteLine("Leaving was the best option you could think of but the eels range on their shock is plenty far! You get shocked and the eels begin to " +
+                    "eat your tentacles. Unfortunatley there was nothing else you can do at this point. Your death is inevitable...");
+                DamageTaken(1000);
+                Console.ReadKey();
+                alive = false;
+            }
+            else
+            {
+                InvalidCommand();
+                Coral2();
+            }
+        }
+
+
+
+
         public void Tunnel() { }
         public int DamageTaken(int damage)
         {
@@ -363,11 +568,6 @@ namespace OctopusAdventureUI
             Console.WriteLine(splash);
             return splash;
         }
-        public void InvalidCommand()
-        {
-            Console.WriteLine("Please enter one of the capitalized commands");
-            Console.ReadKey();
-        }
         public int Poison(int damage)
         {
             Random poison = new Random();
@@ -376,6 +576,11 @@ namespace OctopusAdventureUI
             Console.WriteLine($"You took {poisonDamage} poison damage!");
             Console.WriteLine($"Health: {poisoned}/100");
             return poisoned;
+        }
+        public void InvalidCommand()
+        {
+            Console.WriteLine("Please enter one of the capitalized commands");
+            Console.ReadKey();
         }
 
 
