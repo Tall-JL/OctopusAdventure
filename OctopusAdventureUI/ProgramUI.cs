@@ -15,6 +15,7 @@ namespace OctopusAdventureUI
             GameStart();
         }
         bool alive = true;
+        
         public void GameStart()
         {
 
@@ -29,7 +30,7 @@ namespace OctopusAdventureUI
 
 
                 Console.Clear();
-                Console.WriteLine("Where am I? How did I get here? This isnt where I went to sleep... What in the ocean could have happened? I need to get out of here." +
+                Console.WriteLine("Where am I? How did I get here? This isnt where I went to sleep... What in the ocean could have happened? I need to get out of here. " +
                     "I need to get home. \n\n\n" +
                     "I need to get home...\n\n\n\n" +
                     "***Press 1 to continue***");
@@ -52,14 +53,14 @@ namespace OctopusAdventureUI
                     Console.ReadKey();
                     alive = false;
                 }
+
+
             }
         }
-
-
         public void StartingWorld1()
         {
             NewZone("You wake to see yourself in a strange area. You look around and notice you only see a couple things. Close to " +
-                "you, you see a current move pretty fast. If you jump in this no doubt you'll get a kick start on your journey. Looking below you see a " +
+                "you, you see a current moving pretty fast. If you jump in this no doubt you'll get a kick start on your journey. Looking below you see a " +
                 "lump in the sand. What should your first move be?\n\n\n" +
                 "You decide to RIDE the current.\n" +
                 "You have to SEARCH that sand bump!\n" +
@@ -69,13 +70,13 @@ namespace OctopusAdventureUI
 
             if (command == "ride")
             {
-                Console.WriteLine("You ride the warm water current further south but you are spit out in a area you weren't expecting!");
+                Console.WriteLine("\n\nYou ride the warm water current further south but you are spit out in a area you weren't expecting!");
                 Console.ReadKey();
                 JellyFish();
             }
             else if (command == "search")
             {
-                Console.WriteLine("As you're digging around you find something rough to the touch. Its a shell! " +
+                Console.WriteLine("\n\nAs you're digging around you find something rough to the touch. Its a shell! " +
                     "Shells are great for protection!");
                 HealHealth(20);
                 Console.ReadKey();
@@ -83,7 +84,7 @@ namespace OctopusAdventureUI
             }
             else if (command == "swim above")
             {
-                Console.WriteLine("After swimming high enough to avoid the current you are suddenly snatch into the air by a seagull!");
+                Console.WriteLine("\n\nAfter swimming high enough to avoid the current you are suddenly snatch into the air by a seagull!");
                 Console.ReadKey();
                 Sky();
             }
@@ -104,7 +105,7 @@ namespace OctopusAdventureUI
 
             if (command == "ride")
             {
-                Console.WriteLine("You ride the warm water current further south but you are spit out in a area you weren't expecting!");
+                Console.WriteLine("\n\nYou ride the warm water current further south but you are spit out in an area you weren't expecting!");
                 Console.ReadKey();
                 JellyFish();
             }
@@ -136,14 +137,15 @@ namespace OctopusAdventureUI
             if (command == "outswim")
             {
                 Console.WriteLine("You jolt away but you cant outmanuever them all and get caught in their stingers! You unravel yourself and swim away hurt and -POISONED-...");
-                Poison(15);
+                Poison(16);
                 Console.ReadKey();
                 Turtle1();
             }
             else if (command == "push")
             {
-                Console.WriteLine("With the grace of a dancer you jolt up and start pushing the jellyfish down, giving you room to bounce from one" +
-                    "top to the next safely and quickly!");
+                Console.WriteLine("You swim up above the jellyfish but not before bumping a few stingers. Once above it you begin to push down the jellyfish, giving you ample" +
+                    "room to begin to move unobstructed!");
+                Poison(10);
                 Console.ReadKey();
                 Turtle1();
             }
@@ -151,7 +153,7 @@ namespace OctopusAdventureUI
             {
                 Console.WriteLine("You attempt to drop below to search for something, anything! But the jellyfish tentacles were longer than you thought." +
                     " You get hurt by even more of their stings. You unravel yourself and swim away hurt and -POISONED-...");
-                Poison(25);
+                Poison(36);
                 Console.ReadKey();
                 Turtle1();
             }
@@ -214,7 +216,7 @@ namespace OctopusAdventureUI
             {
                 Console.WriteLine("You hit the turtle with a flurry of octo-punches! They did absolutely nothing to the turtle. So little so you confused the " +
                     "turtle for a moment.");
-
+                Poison2(20);
                 Console.ReadKey();
                 Turtle2();
             }
@@ -222,6 +224,7 @@ namespace OctopusAdventureUI
             {
                 Console.WriteLine("You use what the good Poseidon gave you and inked the turtle but the turtle is a natural predator of yours and " +
                     "shook off the ink immediately took a bite out of one of your arms. You use the time it takes to eat it to escape...");
+                Poison2(20);
                 DamageTaken(30);
                 Console.ReadKey();
                 Shark1();
@@ -230,7 +233,7 @@ namespace OctopusAdventureUI
             {
                 Console.WriteLine("You search the shiny object quickly thanks to your agility. You pull it out and it turns out it was.....A KNIFE?!?" +
                     "You hold the knife up at the turtle and it reaches up as to say it doesnt want any beef before swimming away. You feel powerful and that" +
-                    "adrenaline retores of you vigor!!");
+                    "adrenaline retores of you vigor!!");                
                 HealHealth(30);
                 Console.ReadKey();
                 Shark1();
@@ -320,7 +323,7 @@ namespace OctopusAdventureUI
                     " food for the circle of life...");
                 DamageTaken(10000);
                 Console.ReadKey();
-                
+
             }
 
             else if (command == "hide")
@@ -370,8 +373,7 @@ namespace OctopusAdventureUI
                 Breather();
             }
         }
-
-        public void Whale() 
+        public void Whale()
         {
             NewZone("You decided to check out the movement in the distance. As you swim closer you notice that you can no longer see past the object to either side." +
                 " Suddenly the movement turns out to be extremely apparent to what it is! Its a blue whale! Whales arent normally hostile to you so this could be a great" +
@@ -385,21 +387,21 @@ namespace OctopusAdventureUI
             if (command == "stick")
             {
                 Console.WriteLine("After approaching the behemoth you realize you should have went toward its side instead of the front of it. " +
-                    "The whale opens its mouth and swallows you whole!!!!");                
+                    "The whale opens its mouth and swallows you whole!!!!");
                 Console.ReadKey();
                 Whale2();
             }
             else if (command == "flee")
             {
                 Console.WriteLine("Noticing the damage of the situation you turn tail and speed away! You glance backwards as you see the whale open its mouth; " +
-                    "had you not left when you did surely youd be whale food by now!");                
+                    "had you not left when you did surely youd be whale food by now!");
                 Console.ReadKey();
                 Tunnel();
             }
             else if (command == "wait")
             {
                 Console.WriteLine("You've decided to not approach the whale and to leave it be. Unfortunately the way didnt have the same plan. It closes the distance" +
-                    "between you and opens its mouth and you are swallowed whole!");                
+                    "between you and opens its mouth and you are swallowed whole!");
                 Console.ReadKey();
                 Whale2();
             }
@@ -409,14 +411,14 @@ namespace OctopusAdventureUI
                 Whale();
             }
         }
-        public void Whale2() 
+        public void Whale2()
         {
             NewZone("The whale shifts around quite a lot so you use your suckers to stablize yourself. " +
                 "Its almost pitch black here but your eyes adjust rather quickly and you survery your surroundings. Inside this whale seems to be" +
                 "small fish bits, a broken up pirate ship and the exit to the whales blow hole!\n\n\n" +
-                "There is no way you are arent EXPLORING this pirate ship!\n" +
+                "There is no way you arent EXPLORING this pirate ship!\n" +
                 "You decide to ESCAPE while you can through the blowhole.\n" +
-                "Maybe the fish bits have some of use to you so you SEARCH them!\n\n\n");
+                "Maybe the fish bits have some use to so you SEARCH them!\n\n\n");
 
             string command = Console.ReadLine().ToLower();
 
@@ -429,6 +431,7 @@ namespace OctopusAdventureUI
             }
             else if (command == "escape")
             {
+
                 Console.WriteLine("You decide to take the only smart option and escape through the blow hole! Unfortunately the blow hole was squeezed tight since " +
                     "the whale was still submerged so you had to squeeze out and hurt yourself in the process. You get out of the whale and keep swimming on your way...");
                 DamageTaken(35);
@@ -437,12 +440,41 @@ namespace OctopusAdventureUI
             }
             else if (command == "search")
             {
-                Console.WriteLine("You waddle over to the pile of fish bites. As you come up to it you see something else is there! Its a crab! The crab while angry with your " +
-                    "interuption starts clawing all around to get you! One of the missed claw attempts hit the whales tongue and the whale subsequently spits both you and crab" +
-                    "out. You both hit the sea floor pretty hard.");
-                DamageTaken(25);
-                Console.ReadKey();
-                Tunnel();
+                Random rnd = new Random();
+                int chances = rnd.Next(1, 4);
+                switch (chances)
+                {
+                    case 1:
+                        Console.WriteLine("You waddle over to the pile of fish bites. As you come up to it you see something else is there! Its a crab! The crab while angry with your " +
+                        "interuption starts clawing all around to get you! Several of the attacks hit you and one" +
+                        " of the missed claw attempts hit the whales tongue and the whale subsequently spits both you and crab" +
+                        "out. You both hit the sea floor pretty hard.");
+                        DamageTaken(45);
+                        Console.ReadKey();
+                        Tunnel();
+                        break;
+                    case 2:
+                        Console.WriteLine("You waddle over to the pile of fish bites. As you come up to it you see something else is there! Its a crab! The " +
+                        "crab doesnt notice you are there so you get close enough to eat some of the fish. The first energizes you but the crab " +
+                        "then notices you! The crab while angry with your " +
+                        "interuption starts clawing all around to get you! One of the missed claw attempts hit the whales tongue and the whale subsequently spits both you and crab" +
+                        "out. You both hit the sea floor pretty hard.");
+                        HealHealth(20);
+                        Console.ReadKey();
+                        Tunnel();
+                        break;
+                    case 3:
+                        Console.WriteLine("You waddle over to the pile of fish bites. As you come up to it you see something else is there! Its a crab! The crab while angry with your " +
+                        "interuption starts clawing all around to get you! One of the missed claw attempts hit the whales tongue and the whale subsequently spits both you and crab" +
+                        "out. You both hit the sea floor pretty hard.");
+                        DamageTaken(25);
+                        Console.ReadKey();
+                        Tunnel();
+                        break;
+                    default:
+                        break;
+
+                }
             }
             else
             {
@@ -450,7 +482,7 @@ namespace OctopusAdventureUI
                 Whale2();
             }
         }
-        public void Whale3() 
+        public void Whale3()
         {
             NewZone("With you newly equipped pirate swords this whale should make light work to get out of! The only question that remains is how violent do you" +
                 " want to get about this?\n\n\n" +
@@ -476,15 +508,14 @@ namespace OctopusAdventureUI
                 Console.ReadKey();
                 Tunnel();
             }
-            
+
             else
             {
                 InvalidCommand();
                 Whale3();
             }
         }
-        
-        public void Coral1() 
+        public void Coral1()
         {
             NewZone("Light means you are getting closer to the surface and you feel this would be the best way to continue forward to find your home!" +
                 " Once you catch up to the light you find out that what you saw was a beautiful coral reef shimmering in the distance! This isnt your home but a coral reef" +
@@ -508,14 +539,14 @@ namespace OctopusAdventureUI
                 Console.ReadKey();
                 Tunnel();
             }
-           
+
             else
             {
                 InvalidCommand();
                 Coral1();
             }
         }
-        public void Coral2() 
+        public void Coral2()
         {
             NewZone("Why cant you just have a simple life. All you wanted was a place to lay your mantle and here we are with yet another confrontation... You slowly back up from the " +
                 "eels when suddenly one of the zips toward you fast with the intent to kill!!!!\n\n\n" +
@@ -530,7 +561,7 @@ namespace OctopusAdventureUI
                     "You escape out of there as quick as you can and leave the reef for good!");
                 Console.ReadKey();
                 Tunnel();
-            }            
+            }
             else if (command == "swim")
             {
                 Console.WriteLine("Leaving was the best option you could think of but the eels range on their shock is plenty far! You get shocked and the eels begin to " +
@@ -545,22 +576,22 @@ namespace OctopusAdventureUI
                 Coral2();
             }
         }
-
-
-
-
         public void Tunnel() { }
         public int DamageTaken(int damage)
         {
-            var damaged = PlayerHealth - damage;
-            Console.WriteLine($"Health: {damaged}/100");
-            return damaged;
+            ProgramUI newHealth = new ProgramUI();
+            PlayerHealth = PlayerHealth - damage;
+            Console.WriteLine($"You took {damage} damage!");
+            Console.WriteLine($"Health: {PlayerHealth}/100");
+            return PlayerHealth;
         }
         public int HealHealth(int heal)
         {
-            var healed = PlayerHealth + heal;
-            Console.WriteLine($"Health: {healed}/100");
-            return healed;
+            ProgramUI newHealth = new ProgramUI();
+            PlayerHealth = PlayerHealth + heal;
+            Console.WriteLine($"You were healed by {heal}!");
+            Console.WriteLine($"Health: {PlayerHealth}/100");
+            return PlayerHealth;
         }
         public string NewZone(string splash)
         {
@@ -572,10 +603,19 @@ namespace OctopusAdventureUI
         {
             Random poison = new Random();
             int poisonDamage = poison.Next(0, damage);
-            var poisoned = PlayerHealth - poisonDamage;
-            Console.WriteLine($"You took {poisonDamage} poison damage!");
-            Console.WriteLine($"Health: {poisoned}/100");
-            return poisoned;
+            PlayerHealth = PlayerHealth - poisonDamage;
+            Console.WriteLine($"You took {poisonDamage} poison damage and will be poisoned next map!");
+            Console.WriteLine($"Health: {PlayerHealth}/100");
+            return PlayerHealth;
+        }
+        public int Poison2(int damage)
+        {
+            Random poison = new Random();
+            int poisonDamage = poison.Next(0, damage - 10);
+            PlayerHealth = PlayerHealth - poisonDamage;
+            Console.WriteLine($"You took {poisonDamage} residual poison damage!");
+            Console.WriteLine($"Health: {PlayerHealth}/100");
+            return PlayerHealth;
         }
         public void InvalidCommand()
         {
